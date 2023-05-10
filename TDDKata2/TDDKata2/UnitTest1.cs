@@ -51,15 +51,17 @@ namespace TDDKata2
             Assert.Equal(expectedResult, result);
         }
 
-        [Fact]
-        void StringIsNotDigitTest()
+        [Theory()]
+        [InlineData("a")]
+        [InlineData(" ")]
+        void StringIsNotDigitTest(string inlineData)
         {
             //arrange
             var emptyString = "a";
             var calc = new Calc();
 
             //assert
-            Assert.Throws<NotImplementedException>(() => calc.Add(emptyString));
+            Assert.Throws<NotImplementedException>(() => calc.Add(inlineData));
         }
 
         [Fact]
@@ -78,6 +80,29 @@ namespace TDDKata2
         {
             //arrange
             var emptyString = "123";
+            var calc = new Calc();
+
+            //assert
+            Assert.Throws<NotImplementedException>(() => calc.Add(emptyString));
+        }
+
+        [Fact]
+        void StringIsFloatNumberTypeTest()
+        {
+            //arrange
+            var emptyString = "1.1";
+            var calc = new Calc();
+
+            //assert
+            Assert.Throws<NotImplementedException>(() => calc.Add(emptyString));
+        }
+
+
+        [Fact]
+        void NullIsPassedAsArgumentTest()
+        {
+            //arrange
+            string? emptyString = null;
             var calc = new Calc();
 
             //assert

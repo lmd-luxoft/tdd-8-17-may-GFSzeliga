@@ -5,11 +5,11 @@
         public int Add(string digits)
         {
             int parsedNumber;
-            if (string.IsNullOrEmpty(digits))
+            if (string.Empty == digits)
             {
                 return 0;
             }
-            else if(digits.Length < 3 && Int32.TryParse(digits, out parsedNumber))
+            else if(!string.IsNullOrEmpty(digits) && digits.Length < 3 && Int32.TryParse(digits, out parsedNumber))
             {
                 var firstNumber = parsedNumber % 10;
                 var secondNumber = parsedNumber / 10;
