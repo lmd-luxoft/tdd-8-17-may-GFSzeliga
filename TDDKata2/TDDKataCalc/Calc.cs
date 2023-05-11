@@ -32,6 +32,7 @@ namespace TDDKataCalc
                 var stringArray = digits.Split('\n');
                 var delimiter = stringArray[0].Substring(2);
                 parsedNumber = Int32.Parse(digits.Split('\n')[1].Replace(delimiter,""));
+                var non = "";
                 return true;
             }
             else if (digits.Length < 3 && Int32.TryParse(digits, out parsedNumber))
