@@ -108,5 +108,20 @@ namespace TDDKata2
             //assert
             Assert.Throws<NotImplementedException>(() => calc.Add(emptyString));
         }
+
+        [Fact]
+        void OptionalDelimiterAsPartOfTheStringTest()
+        {
+            //arrange
+            var requestString = "//;\n1;2";
+            var expectedResult = 3;
+            var calc = new Calc();
+
+            //act
+            var result = calc.Add(requestString);
+
+            //assert
+            Assert.Equal(expectedResult, result);
+        }
     }
 }
